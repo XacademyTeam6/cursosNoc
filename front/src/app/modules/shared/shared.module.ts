@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchCoursesComponent } from './components/search-courses/search-courses.component';
-import { RouterModule } from '@angular/router';
 
 
 
@@ -14,13 +13,7 @@ import { RouterModule } from '@angular/router';
     SearchCoursesComponent
   ],
   imports: [
-    CommonModule,
-    RouterModule,
-  ],
-  exports:[
-    FooterComponent,
-    NavbarComponent,
-    SearchCoursesComponent,
+    CommonModule
   ]
 })
 export class SharedModule { }
