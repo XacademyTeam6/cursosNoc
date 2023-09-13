@@ -4,82 +4,83 @@
     --color-dark-xx:#1f232b;
     --color-light: #ffffff;
     --color-grey: #f5f6f8;
+    --color-LightBlue:#ADD8E6;
+    --color-darkblue:#00008B;
+    --color-OrangeRed:	#FF4500;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
 
 }
-body{
+.container{
     font-family: 'Roboto', sans-serif;    
-    font-size: 1.1rem;
-    font-weight: 300;
-    background-color: var(--color-grey);
-    color: var(--color-light);
-    letter-spacing: 0.5rem;
+    background-color:#ADD8E6;
+    color:#15181f; 
+    transition: all is ease;
+    background-size:cover;
+    position:relative;
+    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    max-width: 900px;
+    max-height: 900px;
+}
+.row{
+    background-color:#ADD8E6;
+    display: flex;
+    justify-content: center;
+    border:3px 3px 4px #15181f; 
+    border-radius: 10%;
+}
+form{
+    box-shadow:3px 3px 4px 4px #15181f;
+    padding: 50px;
+    margin: 50px;
+}
+h1{
+    justify-content: center;
+    margin: 50px;
+}
+h3,p{
+    justify-content: center;
+    margin: 15px;
+    border: 15px;
+}
+.icons{
+    margin: 50px;
+}
+.icons i{
+    padding: 15px;
+    margin: 10px 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.card{
+    justify-content: center;
+    background-color: #F5DEB3;
+}
+/*formulario*/
+
+.form-check-label{
+    font-size: 2rem;
+    cursor: pointer;
+}
+.form-ckeck label input:checked ~ samp{
+    box-shadow: 0px 0px 30px 0px blue;
 
 }
-bg-light{
-    background-color: var(--color-light)!important;
-
+.form-check-input span::after {
+    content: "";
+    position: absolute;
+    border: solid white;
+    border-width: 0 0.30em 0.30em 0;
+    transform: rotate(45deg);
+    width: 0.50em;
+    height: 1em;
+    left: 0.6em;
+    top: 0.25em;
+    opacity: 0;
+    transition: 0.3s ease;
 }
-bg-dark{
-    background-color: var(--color-dark)!important;
-}
-.p-6{
-    padding: 4rem 7rem;
-}
-.contact-box{
-    padding: 3rem;
-
-}
-#icono{
-    width: 15px;
-    height: 15px;
-
-}
-.btn{
-    font-weight: 400;
-    padding: 1rem 2rem;
-    border-radius: 5rem;
-    -webkit-border-radius: 5rem;
-    -moz-border-radius: 5rem;
-    -ms-border-radius: 5rem;
-    -o-border-radius: 5rem;
-    min-width: 10rem; 
-}
-.btn-outline-dark{
-    border: 2px solid var(--color-dark)!important;
-
-}
-
-form-control{
-    background-color: var(--color-dark-xx);
-    border: 2px solid var(--color-dark-xx) ;
-    border-radius:.2rem;
-    padding: 1.5rem 1rem;
-}
-.register-bg{    
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-}
-.testimonial{
-    bottom: 10px;
-
-}
-@media(max-width: 575.98px){
-    .p-6{
-        padding: 2rem;
-        
-    }
-    .contact-box{
-        padding: 0;
-    }
-    .width-100{
-        width: 100%;
-    }
-}
-/**para la imagen **/
-@media(max-width: 1200px){
-    .register-bg{
-        min-height: 50vh;
-    }
-
+.form-check label input::checked * span::after{
+    opacity: 1;
 }

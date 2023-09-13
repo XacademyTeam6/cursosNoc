@@ -1,61 +1,126 @@
 <app-navbar></app-navbar>
-<section class="contact-box">
-    <div class="row no-gutters bg-dark">
-        <div class="col-xl-5 col-lg-12 register-bg">
-            <div class="position-absolute testimonial p-4">
-                <h3 class="font-weight-bold text-light">La rebolución digital a llegado para quedarse</h3>
-                <p class="lead text-light">Las nuevas formas de capacitarse se ajustan a las distintas disponibilidades de los estudiantes</p>
-            </div>
-
-        </div>
-        <div class="col-xl-7 col-lg-12 d-flex">
-            <div class="container align-self-center p-6">
-                <h2 class="font-weight-bold mb-3">Crear tu cuenta gratis</h2>
-                <div class="form-group">
-                    <button class="btn btn-outline-dark d-inline-block text-light mr-2 mb-3">
-                        <!--<ion-icon name="logo-google" class="lead align-middle mr-2 width-100"></ion-icon>-->
-                        Google
-                    </button>
-                    <button class="btn btn-outline-dark d-inline-block text-light mb-3 width-100">
-                        <!--<ion-icon name="logo-facebook" class="lead align-middle mr-2"></ion-icon>-->
-                        Facebook
-                    </button>
+<div class="container">
+    <div class="row align-items-center">
+        <div class="card" style="width: 40rem;">
+            <div class="card-body">
+                <h1 class="card-title">
+                    <b> Crear tu cuenta gratis</b>
+                </h1>
+                <div class="icons">
+                    <a href="https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmail.google.com&ec=GAlAFw&hl=es&service=mail&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S839574913%3A1694529197924272&theme=glif" class="card-link">
+                        <button class="btn btn-outline-dark d-inline-block mr-2 mb-3 width-100">
+                            <i class='bx bxl-google'>Google</i>
+                        </button>
+                    </a>
+                    <a href="https://www.facebook.com/" class="card-link">
+                        <button class="btn btn-outline-dark d-inline-block mb-3 width-100">
+                            <i class='bx bxl-meta'>Facebook</i> 
+                        </button>
+                    </a> 
 
                 </div>
-                <p>Ingresa la siguente información para registrarte.</p>
-                <form action="">
-                    <div class="form-row mb-2">
-                        <div class="form-group col-md-6">
-                            <label class="font-weight-bold">Nombre<span class="text-danger">*</span></label>
-                            <input type="text" [(ngModel)]="firstName" name="firstName" class="form-control" placeholder="Nombre">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label class="font-weight-bold">Apellido<span class="text-danger">*</span></label>
-                            <input type="text" [(ngModel)]="lastName" name="lastName" class="form-control" placeholder="Apellido">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="font-weight-bold">Correo electronico<span class="text-danger">*</span></label>
-                            <input type="email" [(ngModel)]="email" name="email" class="form-control" placeholder="Ingresa tu correo electronico">
-                        </div>
-                        <div class="form-group md-3">
-                            <label class="font-weight-bold">Contraseña<span class="text-danger">*</span></label>
-                            <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Ingresa una contraseña">
-                        </div>
-                        <div class="form-group mb-5">
-                            <div class="form-check">
-                                <input type="ckeckbox" class="form-check-input">
-                                <label class="form-check-label text-muted">Al seleccionar esta casilla aceptas nuestro avisos de privacidad y los terminos y condiciones</label>
-                            </div>
-                            <button (click)="registerUser(); navigateToLogin()" class="btn btn-primary width-100">Registrarse</button>
-                            
+                <p class="card-text">Ingresa la siguente información para registrarte.</p>
+            </div>
+            <form><!--[FormGroup]="forma" (ngSubmit)="guardar()"-->
+                <div class="form-row mb-2">
+                    <div class="form-group col-12">
+                        <label class="font-weight-bold">Nombre
+                            <span class="text-danger">
+                                <i class='bx bx-user'></i>
+                            </span>
+                        </label><!--[(ngModel)]="firstName"
+                        [class.is-invalid]="nombreNoValido"-->
+                        <input type="text" 
+                        name="firstName"
+
+                        class="form-control" 
+                        
+                        formControlName="name"
+                        placeholder="Tu nombre"> <!--*ngIf="nombreNoValido"-->
+                        <small class="text-danger">Ingrese un nombre con minimo 3 letras</small>
+            
+                    </div>
+                    <div class="form-group col-12">
+                        <label class="font-weight-bold" for="Apellido">Apellido
+                            <span class="text-danger">
+                                <i class='bx bx-user'></i>
+                            </span>
+                        </label><!-- [(ngModel)]="lastName" 
+                        [class.is-invalid]="apellidoNoValido">-->
+                        <input type="text" 
+                        name="lastName"
+                        
+                        class="form-control" 
+                        formControlName="apellido" 
+                        placeholder="Tu apellido"> <!--*ngIf="apellidoNoValido"-->
+                        <small class="text-danger">El apellido es un campo requerido</small>
+                    </div>
+                    <div class="form-group col-12 mb-3">
+                        <label class="font-weight-bold">Correo electronico
+                            <span class="text-danger">
+                                <i class='bx bx-envelope'></i>
+                            </span>
+                        </label> <!--*ngIf="emailNoValido" [(ngModel)]="email"  [class.is-invalid]="emailNoValido" -->
+                        <input type="email" 
+                        name="email"
+                        class="form-control"
+                       
+                        formControlName="email"  
+                        placeholder="Ingresa tu correo electronico">
+                        <small class="text-danger">Ingrese un correo valido</small>
+                    </div>
+                    <div class="form-group col-12 md-3" role="alert">
+                        <label class="font-weight-bold">Contraseña
+                            <span class="text-danger">
+                                <i class='bx bx-lock-alt'></i>
+                            </span>
+                        </label> <!-- [class.is-invalid]="passwordNoValido" [(ngModel)]="password"-->
+                        <input type="password" class="form-control"
+                        name="password"
+                        formControlName="password"  
+                        placeholder="Ingresa una contraseña">
+                        <small class="text-danger">Ingrese una contraseña con minimo 8 caracteres</small>
+                    </div>
+                    <div class="form-group mb-5">
+                        <div class="form-check">
+                           <label class="form-check-label">
+                                <input type="checkbox" id="cbox1" value="first_checkbox">
+                                <span class="ckeck text-muted">Acepto los terminos y condiciones</span> 
+                            </label>
+                           
                         </div>
                     </div>
-                </form>
-                <small class="d-inline-block text-muted mt-5">Todos los derechos reservados | 2023 Xacademy</small>
-            </div>
+                    <div class="form-group mb-5">
+                        <label class="col-from-label">&nbsp;</label>
+                        <div class="input-group">
+                            <button type="button" 
+                            (click)="registerUser(); navigateToLogin()" class="btn btn-primary width-100">
+                                Registrarse
+                            </button>
+                            <button type="button"
+                             class="btn btn-primary width-100">
+                                limpiar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <br>
         </div>
+        <br>
     </div>
-</section>
+    <br>
+    <h3 class="mt-5">Formulario</h3>
+    <!-- {{forma.valid}}-->
+    <pre>Estado del formulario: 
+        <br> 
+        <!--status: {{forma.status}}-->
+        <br> 
+    </pre>
+    <pre><!--   { {forma.value | json} }-->
+
+    </pre>
+</div>
 <app-footer></app-footer>
 
 
