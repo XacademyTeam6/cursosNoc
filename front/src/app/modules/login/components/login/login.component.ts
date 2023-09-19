@@ -4,7 +4,6 @@ import { AuthService } from '../../../../services/auth.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,35 +15,33 @@ export class LoginComponent implements OnInit {
   password: string = '';
   formSubmitted: boolean = false;
 
-  constructor(private authService: AuthService,private toastr:ToastrService, private router: Router) { }
+  constructor(private authService: AuthService, private toastr: ToastrService, private router: Router) { }
 
   login(loginForm: NgForm) {
     if (!loginForm.valid) {
       this.formSubmitted = true;
-      
-      
+      return;
     }
+
     this.formSubmitted = false;
     const email = this.email;
     const password = this.password;
 
     this.authService.login(email, password).subscribe(
       (response: any) => {
-        if (response === 'Login exitoso') { //login exitoso es la "respuesta" del backend
-          this.router.navigate(['/home']);
+        if (response === 'Login exitoso') { //login exitoso es la "respuesta" del backend          
           this.toastr.success('login exitoso');
-          
-        } else {
-          // redireccionar a /login y ver como mandar error de algun tipo
-          
-          alert('error al iniciar s');          
-          
+          this.router.navigate(['/home']);
+
+        } else {          
+          this.toastr.error('Error al iniciar sesión. Verifique los datos ingresados.');
         }
+
       },
       (error: any) => {
-        
-       alert('error al iniciar s');
-      
+
+        this.toastr.error('Error al iniciar sesión. Verifique su conexión o inténtelo más tarde.');
+
       }
     );
   }
