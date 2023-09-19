@@ -37,15 +37,15 @@ export class LoginComponent implements OnInit {
         } else {
           // redireccionar a /login y ver como mandar error de algun tipo
           
-          alert('error al iniciar s');
           
+          this.toastr.error('login exitoso');
           
         }
       },
       (error: any) => {
+        alert('error');
+        this.toastr.error('login exitoso');
         
-       alert('error al iniciar s');
-      
       }
     );
   }
