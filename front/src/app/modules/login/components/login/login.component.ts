@@ -37,8 +37,7 @@ export class LoginComponent implements OnInit {
         } else {
           // redireccionar a /login y ver como mandar error de algun tipo
           
-          alert('error al iniciar s');
-          
+          alert('error al iniciar s');          
           
         }
       },
