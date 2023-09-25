@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../../services/auth.service';
 import { NgForm } from '@angular/forms';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,11 +14,12 @@ export class LoginComponent implements OnInit {
   password: string = '';
   formSubmitted: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private toastr: ToastrService,private router: Router) { }
 
   login(loginForm: NgForm) {
     if (!loginForm.valid) {
       this.formSubmitted = true;
+      this.toastr.error('Hello world!', 'Toastr fun!');
       return;
     }
     this.formSubmitted = false;
@@ -29,13 +30,15 @@ export class LoginComponent implements OnInit {
       (response: any) => {
         if (response === 'Login exitoso') { //login exitoso es la "respuesta" del backend
           return this.router.navigate(['/home']);
+         
+
         } else {
           // redireccionar a /login y ver como mandar error de algun tipo
           return console.log('desde if negativo', response);
         }
       },
       (error: any) => {
-        console.error('Error al iniciar sesión:', error);
+        this.toastr.error('Hello world!', 'Toastr fun!');
       }
     );
   }
