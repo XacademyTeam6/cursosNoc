@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         }
       },
       (error: any) => {
-        this.toastr.error('Hello world!', 'Toastr fun!');
+        this.toastr.error('Podes volver cuando te registres!','Error al iniciar sesion');
       }
     );
   }
