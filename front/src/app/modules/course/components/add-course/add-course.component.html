@@ -4,7 +4,7 @@
   <div class="row align-items-center">
     <div class="card">
       <div class="card-body">
-        <p class="card-text">Crear Curso</p>
+        <strong><p class="card-text">Crear Curso</p></strong>
       </div>
 
       <form #registrationForm="ngForm" (submit)="createCourse()">
@@ -31,8 +31,9 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-custom">Crear</button>
+        <button type="submit" class="btn btn-primary btn-custom">Crear</button> 
       </form>
+      <button class="btn btn-primary btn-custom" (click)="goBack()">Volver</button>
     </div>
   </div>
 </div>
