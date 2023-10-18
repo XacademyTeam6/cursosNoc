@@ -6,7 +6,7 @@
                 <h1 class="card-title">
                     <h1>Crear tu cuenta gratis</h1>
                 </h1>
-                <div class="form-group text-center icons" style="padding: 1rem">
+                <div class="form-group text-center icons">
                     <a href="https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmail.google.com&ec=GAlAFw&hl=es&service=mail&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S839574913%3A1694529197924272&theme=glif"
                         class="card-link">
                         <button class="btn btn-outline-primary">
@@ -22,17 +22,24 @@
                 <p class="card-text">Ingresa tus datos para registrarte.</p>
             </div>
 
-            <form #registrationForm="ngForm" (submit)="registerUser();" ngNativeValidate>
+            <form #registrationForm="ngForm" (submit)="registerUser(); navigateToLogin()" ngNativeValidate class="form-container">
                 <div class="form-row mb-2">
                     <div class="form-group col-12">
-                    <input type="text" 
-                    [(ngModel)]="firstName" 
-                    name="firstName" 
-                    class="form-control" 
-                    required
-                    class="form-control" 
-                    placeholder="Nombre"
-                    minlength="2">
+                        <input type="text" 
+                            [(ngModel)]="firstName" 
+                            name="firstName" 
+                            class="form-control" 
+                            required
+                            class="form-control" 
+                            placeholder="Nombre"
+                            minlength="3"
+                            pattern="[a-zA-Z]+"
+                        >
+                        <div *ngIf="registrationForm.form.controls.firstName?.invalid && registrationForm.form.controls.firstName.touched">
+                            <div class="error-text">
+                                Ingrese al menos 3 caracteres sin numeros.
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group col-12">
@@ -43,28 +50,46 @@
                         required
                         class="form-control" 
                         placeholder="Apellido"
-                        minlength="2">
+                        minlength="3"
+                        pattern="[a-zA-Z]+"
+                        >
+                        <div *ngIf="registrationForm.form.controls.lastName?.invalid && registrationForm.form.controls.lastName.touched">
+                            <div class="error-text">
+                                Ingrese al menos 3 caracteres sin numeros.
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group col-12">
-                        <input type="email" 
+                        <input type="email" id="email" 
                         [(ngModel)]="email" 
                         name="email" 
                         class="form-control" 
                         required
-                        class="form-control" 
-                        placeholder="Correo electrónico"
-                        minlength="6">
+                        placeholder="Correo Electronico"
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+                        minlength="6"
+                        >
+                        <div *ngIf="registrationForm.form.controls.email?.invalid && registrationForm.form.controls.email.touched">
+                            <div class="error-text">Ingresa un correo electrónico válido.</div>
+                        </div>
                     </div>
 
-                    <div class="form-group col-12">                        
-                        <input type="password" 
+                    <div class="form-group col-12" id="password">                        
+                        <input type="password"
                         [(ngModel)]="password" 
                         name="password" 
                         class="form-control" 
                         required class="form-control"
                         placeholder="Contraseña"
-                        minlength="8">                    
+                        minlength="8"
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+                        >
+                        <div *ngIf="registrationForm.form.controls.password?.invalid && registrationForm.form.controls.password.touched">
+                            <div class="error-text">
+                                Ingrese minimo 8 caracteres.
+                            </div>
+                        </div>                    
                     </div>
 
                     <div class="form-group col-12">
@@ -75,17 +100,16 @@
                             class="form-check-input" 
                             required>
                             <label class="form-check-label text-muted">Acepto los términos y condiciones</label>
-                          </div>
+                        </div>
 
-                          <div *ngIf="registrationForm.controls.acceptedTerms?.invalid && registrationForm.controls.acceptedTerms.dirty">
+                        <div *ngIf="registrationForm.controls.acceptedTerms?.invalid && registrationForm.controls.acceptedTerms.dirty">
                             <div class="error-text">
-                              {{ acceptedTermsErrorMessage }}
+                                {{ acceptedTermsErrorMessage }}
                             </div>
-                          </div>
-
-
-                        <button type="submit" class="btn-custom">Registrarse</button>
+                        </div>
+                    
                     </div>
+                    <button type="submit" class="btn-custom">Registrarse</button>
 
                 </div>
 
@@ -95,4 +119,3 @@
     </div>
 </div>
 <app-footer></app-footer>
-

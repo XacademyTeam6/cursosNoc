@@ -2,8 +2,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90%;
+    height: 100%;
+    margin-top: 0;
+    overflow: hidden;
+    white-space: nowrap;
     background: var(--background-gradient);
+    
+}
+.row{
+    margin-top: 0;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 15px;
 }
 
 .icons i {
@@ -13,26 +24,22 @@
     transition: 0.3s ease;
 }
 
-.card-body{
-    /* margin-bottom: -5%; */
-}
-
 .form-container {
     background-color: VAR(--color-0);
-    padding: 20px;
+    overflow: hidden;
+    white-space: nowrap;
     border-radius: 5px;
     box-shadow: VAR(--box-shadow-1);
-    max-width: 400px;
+    max-width: 400vh;
     width: 60vh;
-    margin: 0 auto;
+    margin: 0;
 }
 
 input {
     font-size: 2vh;
     width: 100%;
-    height: 45px;
     padding: 1vh 2vh;
-    margin: 10px 0;
+    margin: 1vh 0;
     box-sizing: border-box;
     border-color: var(--color-3);
 }
@@ -68,10 +75,11 @@ textarea {
 
 .custom-checkbox input[type="checkbox"] {
     margin-right: 5px;
-
 }
+.error-text{
+    margin-top: 10px;
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
 
-.card{
-    padding: 2.0rem;
-    border-radius: 5px;
 }
