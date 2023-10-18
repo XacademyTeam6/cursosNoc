@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+  <div class="row align-items-center">
+    <div class="container mt-4">
+      <div *ngIf="course of courses" class="card">
+        <div class="card-header">
+          <h2>Detalles del Curso</h2>
+        </div>
+        <div class="card-body">          
+          <p><strong>Id:</strong> {{ course.id }}</p>                  
+          <p><strong>Nombre:</strong> {{ course.name }}</p>
+          <p><strong>Horas:</strong> {{ course.durationHours }}</p>
+          <p><strong>Descripción:</strong> {{ course.description }}</p>           
+          <button class="btn btn-info" (click)="goToLogin()">Inscribirse</button>
+          <button class="btn btn-info" (click)="goBack()">Volver</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

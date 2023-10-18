@@ -8,7 +8,7 @@ import { CardComponent } from './components/card/card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchNavComponent } from './components/search-nav/search-nav.component';
 import { FormsModule } from '@angular/forms';
-import { ChanchadaComponent } from './components/chanchada/chanchada.component';
+import { CoursePanelComponent } from './components/course-panel/course-panel.component';
 
 
 
@@ -20,7 +20,7 @@ import { ChanchadaComponent } from './components/chanchada/chanchada.component';
     SearchCoursesComponent,
     CardComponent,
     SearchNavComponent,
-    ChanchadaComponent
+    CoursePanelComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +33,7 @@ import { ChanchadaComponent } from './components/chanchada/chanchada.component';
     NavbarComponent,
     SearchCoursesComponent,
     SearchNavComponent,
-    ChanchadaComponent
+    CoursePanelComponent
   ]
 })
 export class SharedModule { }

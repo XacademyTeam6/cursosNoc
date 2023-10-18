@@ -16,7 +16,7 @@ import { MyCoursesComponent } from './components/my-courses/my-courses.component
     CourseListComponent,
     AddCourseComponent,
     EditCourseComponent,
-    MyCoursesComponent
+    MyCoursesComponent,    
   ],
   imports: [
     CommonModule,
