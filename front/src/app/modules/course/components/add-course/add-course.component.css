@@ -44,9 +44,18 @@ textarea {
 }
 
 .btn-custom {
-    padding: 1vh;
-    background-color: VAR(--color-primary);
-    color: var(--color-0);
-    width: 100%;
-    transition: background-color 0.3s ease;
-  }
+    color: var(--color-0) ;
+    background-color: var(--color-4);
+    padding: .7rem;
+    font-weight: 600;
+    margin-bottom: .7rem;
+}
+
+.btn-custom:hover {
+    background-color: var(--color-2);
+}
+
+.btn-info:hover {
+    background-color: var(--color-2);
+}
+
