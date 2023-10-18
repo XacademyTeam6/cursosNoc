@@ -42,7 +42,7 @@ export class CourseService {
   }
 
   enrollStudent(courseId: number, userId: number): Observable<any> {
-    const url = `${this.apiUrl}/course/${courseId}/user/${userId}`;
+    const url = `${this.apiUrl}/api/course/${courseId}/user/${userId}`;
     return this.http.put(url, null);
   }
  
