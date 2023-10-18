@@ -15,36 +15,35 @@ export class CardComponent implements OnInit {
 
   constructor(private courseService: CourseService, private toastr: ToastrService, private authService: AuthService, private router: Router) { }
    
-  inscribirseAlCurso() {   
-    const user = this.authService.getUser();
+  inscribirseAlCurso() {
+    if (this.authService.isLoggedIn()) {
+      const user = this.authService.getUser();     
 
-    if (user) {      
       const courseId = this.course.id;
-      console.log(courseId)
-     
-      this.courseService.enrollStudent(courseId, user.id).subscribe(
+      const course = this.courseService.getCourseById(courseId)      
+      const courseName = this.course.name
+
+      this.courseService.enrollStudent(courseId, user.userId).subscribe(
         (response) => {
           console.log('Usuario inscrito exitosamente en el curso.', response);
-          this.toastr.success('Usuario inscrito exitosamente en el curso.');
+          this.toastr.success(`¡Felicitaciones! Te inscribiste al curso de ${courseName}`);
           this.goToMyCourses();
         },
         (error) => {
           console.error('Error al inscribir al usuario en el curso.', error);
-          this.toastr.error('Error al inscribir al usuario en el curso.');
+          this.toastr.error('Error al inscribirte al curso.');
         }
       );
-    } else {
-      console.error('No se encontró un usuario válido en el local storage.');
-      
+    } else {      
+      this.router.navigate(['/login']);
     }
   }
 
   goToMyCourses(){
-  this.router.navigate(['/course/my-courses']);
+    this.router.navigate(['/course/my-courses']);
   }
 
-  goToCourse(courseId: number) {
-    console.log('Navigating to course with ID:', courseId);
+  goToCourse(courseId: number) {  
     this.router.navigate([`./course-info/${courseId}`]);
   }
 
