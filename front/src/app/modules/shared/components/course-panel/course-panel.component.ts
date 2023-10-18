@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/services/course.service';
 
 @Component({
-  selector: 'app-chanchada',
-  templateUrl: './chanchada.component.html',
-  styleUrls: ['./chanchada.component.css']
+  selector: 'app-course-panel',
+  templateUrl: './course-panel.component.html',
+  styleUrls: ['./course-panel.component.css']
 })
-export class ChanchadaComponent implements OnInit {
+export class CoursePanelComponent implements OnInit {
 
   texto: string = '';
   opcionSeleccionada: 'ByName' | 'byProfesor' = 'ByName';

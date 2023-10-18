@@ -31,11 +31,10 @@ const routes: Routes = [
     path: ':id',
     component: CourseComponent,
   },
-  // Ruta por defecto, puede ser una página de inicio u otra página principal.
   {
     path: '',
-    redirectTo: 'course-list', // Redirige a la lista de cursos por defecto.
-    pathMatch: 'full', // Asegura que la redirección se haga solo cuando la URL esté vacía.
+    redirectTo: 'course-list',
+    pathMatch: 'full',
   },
 ];
 
