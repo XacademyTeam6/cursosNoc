@@ -46,4 +46,8 @@ export class AddCourseComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  goBack(): void {
+    window.history.back();
+  }
 }

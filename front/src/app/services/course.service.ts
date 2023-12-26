@@ -40,6 +40,11 @@ export class CourseService {
 
     return this.http.get<any[]>(`${this.apiUrl}/api/course/search`, { params });
   }
+
+  enrollStudent(courseId: number, userId: number): Observable<any> {
+    const url = `${this.apiUrl}/api/course/${courseId}/user/${userId}`;
+    return this.http.put(url, null);
+  }
  
 }
 

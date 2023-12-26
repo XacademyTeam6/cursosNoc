@@ -13,11 +13,8 @@
     transition: 0.3s ease;
 }
 
-.card-body{
-    /* margin-bottom: -5%; */
-}
-
 .form-container {
+    align-items: center;
     background-color: VAR(--color-0);
     padding: 20px;
     border-radius: 5px;
